@@ -1,0 +1,3 @@
+#!/bin/sh
+# . "$(dirname "$0")/../node_modules/husky/share/git-hooks/pre-push"
+node .husky/pre-push.mjs "$@"
