@@ -1,5 +1,5 @@
-const { confirm } = require("@inquirer/prompts");
-const { execSync } = require("child_process");
+import { confirm } from "@inquirer/prompts";
+import { execSync } from "child_process";
 
 // Function to prompt the user for confirmation before pushing to the main branch
 async function confirmPush() {
@@ -22,6 +22,7 @@ async function confirmPush() {
 async function main() {
     const currentBranch = execSync("git symbolic-ref --short HEAD").toString().trim();
     const remoteBranch = process.argv[2]; // Target branch specified in the push command
+    console.log("to the", currentBranch, remoteBranch);
 
     // If you're trying to push to the main branch, prevent the push
     if (remoteBranch === "main" || currentBranch === "main") {
